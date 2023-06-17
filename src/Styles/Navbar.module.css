@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  border: none;
+  border-bottom: 00000000000.1px solid #d6b8f7;
+  padding: 20px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.navbar input {
+  width: 200px;
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 40px;
+  border: none;
+}

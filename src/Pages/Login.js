@@ -35,7 +35,7 @@ export default function Login() {
           console.log("success");
           localStorage.setItem("encodedToken", encodedToken);
           localStorage.setItem("user", JSON.stringify(data.foundUser));
-          //   setUserInfo(data.foundUser);
+          setUserInfo(data.foundUser);
           setIsAuthenticated(true);
           navigate("/");
         }

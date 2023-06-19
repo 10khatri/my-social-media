@@ -1,0 +1,26 @@
+.suggestion_container h1 {
+  text-align: center;
+}
+
+.suggestion_profile_container {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.suggestion_profile {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+}
+.suggestion_profile span {
+  font-size: 0.9rem;
+}
+.suggestion_profile button {
+  margin-top: 8px;
+  padding: 4px 10px;
+}
+.suggestion_profile img {
+  width: 48px;
+  object-fit: cover;
+  height: 48px;
+  border-radius: 50%;
+}

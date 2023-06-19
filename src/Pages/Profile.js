@@ -18,7 +18,6 @@ import {
 export default function Profile() {
   const { getUserData, posts } = useContext(PostContext);
   const { userInfo } = useContext(AuthContext);
-  console.log(userInfo);
   const { profileId } = useParams();
   const [userData, setUserData] = useState({});
   const userPosts = posts.filter((post) => post.username === userData.username);
@@ -72,7 +71,10 @@ export default function Profile() {
               <div className={styles.profile_footer}>
                 <h3>Post {userPosts.length}</h3>
                 <h3>Following {}</h3>
-                <h3>Followers {}</h3>
+                <h3>
+                  Followers{" "}
+                  {userData.followers ? userData.followers.length : null}
+                </h3>
               </div>
             </div>
             {userPosts.map((post) => {

@@ -38,7 +38,7 @@ export default function Signup() {
           localStorage.setItem("encodedToken", encodedToken);
           localStorage.setItem("user", JSON.stringify(data.createdUser));
           setIsAuthenticated(true);
-          //   setUserInfo(data.createdUser);
+          setUserInfo(data.createdUser);
           navigate("/");
         }
       } catch (error) {

@@ -1,10 +1,11 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { AuthContext } from "./AuthContext";
 export const PostContext = React.createContext();
 
 export default function PostContextProvider({ children }) {
   const [posts, setPosts] = React.useState([]);
   const [users, setUsers] = React.useState([]);
+  const { setUserInfo, userInfo } = useContext(AuthContext);
 
   React.useEffect(() => {
     fetchPosts();
@@ -34,6 +35,7 @@ export default function PostContextProvider({ children }) {
     try {
       const res = await fetch(`/api/users/${userId}`);
       const data = await res.json();
+      console.log(data);
       return data.user;
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -59,10 +61,39 @@ export default function PostContextProvider({ children }) {
       console.log("Error fetching post data:", error);
     }
   };
+  const handleFollow = async (followUserId) => {
+    try {
+      const response = await fetch(`/api/users/follow/${followUserId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: localStorage.getItem("encodedToken"),
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+      if (response.status === 200) {
+        const updatedUserInfo = data.user;
+        setUserInfo(updatedUserInfo);
+        fetchPosts();
+      } else {
+        console.log("Invalid response data:", data);
+      }
+    } catch (error) {
+      console.log("Error following user:", error);
+    }
+  };
 
   return (
     <PostContext.Provider
-      value={{ posts, users, getUserData, createPost, fetchPosts }}
+      value={{
+        posts,
+        users,
+        getUserData,
+        createPost,
+        fetchPosts,
+        handleFollow,
+      }}
     >
       {children}
     </PostContext.Provider>

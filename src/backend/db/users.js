@@ -17,38 +17,12 @@ export const users = [
     website: "https://github.com/percius47",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    following: [
-      {
-        _id: uuid(),
-        fullName: "John Doe",
-        username: "johndoe",
-        profileAvatar: "https://picsum.photos/id/1009/150",
-      },
-    ],
-    followers: [
-      {
-        _id: uuid(),
-        fullName: "John Doe",
-        username: "johndoe",
-        profileAvatar: "https://picsum.photos/id/1009/150",
-      },
-      {
-        _id: uuid(),
-        fullName: "Aditya Jadhav",
-        username: "aditya_jadhav",
-        profileAvatar: "https://picsum.photos/id/100/150",
-      },
-      {
-        _id: uuid(),
-        fullName: "Anshaal Khanna",
-        username: "anshaal10",
-        profileAvatar: "https://picsum.photos/id/1005/150",
-      },
-    ],
+    following: [],
+    followers: [],
   },
   {
     _id: uuid(),
-    fullName: "Prashant  ",
+    fullName: "Prashant Singh Chauhan",
     username: "pareshaaaaan",
     password: "123",
     bio: "Hey there, Prashant here",

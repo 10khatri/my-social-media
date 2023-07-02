@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
       </div>
       <div>
-        <Link to={`/profile/${user._id}`}>
+        <Link to={`/profile/${user?._id}`}>
           <h1>{user.username}</h1>
         </Link>
       </div>

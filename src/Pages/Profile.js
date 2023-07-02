@@ -28,8 +28,8 @@ export default function Profile() {
   const userPosts = posts.filter((post) => post.username === userData.username);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editedUserData, setEditedUserData] = useState({
-    bio: userData.bio,
-    website: userData.website,
+    bio: userData?.bio,
+    website: userData?.website,
   });
 
   useEffect(() => {

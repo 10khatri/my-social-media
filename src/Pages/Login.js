@@ -14,6 +14,7 @@ export default function Login() {
     if (isGuestLogin) {
       handleLogin();
     }
+    // eslint-disable-next-line
   }, [isGuestLogin]);
   function handleLogin() {
     const fetchLogin = async () => {

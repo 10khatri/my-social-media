@@ -21,7 +21,7 @@ export default function Signup() {
         bio: `Hey there ${name} here`,
         website: "https://github.com/p",
       };
-      console.log(userData);
+
       try {
         const response = await fetch("/api/auth/signup", {
           method: "POST",
@@ -65,7 +65,10 @@ export default function Signup() {
   return (
     <div className={styles.signup_container}>
       <div className={styles.quote_container}>
-        <img src="https://www.freepnglogos.com/uploads/logo-twitch-ios-version-png-0.png" />
+        <img
+          src="https://www.freepnglogos.com/uploads/logo-twitch-ios-version-png-0.png"
+          alt="logo"
+        />
       </div>
       <div className={styles.signup_form}>
         <h1>Signup</h1> <br />
@@ -108,7 +111,6 @@ export default function Signup() {
           <br />
           <div className={styles.signup_buttons}>
             <button onClick={handleSignup}>Signup</button>
-
             <button>
               <Link to="/login">Login </Link>
             </button>

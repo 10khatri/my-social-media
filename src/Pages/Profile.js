@@ -22,7 +22,7 @@ Modal.setAppElement("#root");
 export default function Profile() {
   const { getUserData, posts, handleFollow, handleUnfollow, editUserData } =
     useContext(PostContext);
-  const { userInfo, logout, setUserInfo } = useContext(AuthContext);
+  const { userInfo, logout } = useContext(AuthContext);
   const { profileId } = useParams();
   const [userData, setUserData] = useState({});
   const userPosts = posts.filter((post) => post.username === userData.username);

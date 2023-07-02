@@ -128,6 +128,9 @@ export default function Bookmark() {
                               fontSize: "1.2rem",
                               cursor: "pointer",
                             }}
+                            onClick={() => {
+                              toggleBookmark(post._id);
+                            }}
                           />
                           <FontAwesomeIcon
                             icon={faComments}

@@ -62,7 +62,10 @@ export default function Login() {
   return (
     <div className={styles.login_container}>
       <div className={styles.quote_container}>
-        <img src="https://www.freepnglogos.com/uploads/logo-twitch-ios-version-png-0.png" />
+        <img
+          src="https://www.freepnglogos.com/uploads/logo-twitch-ios-version-png-0.png"
+          alt="logo"
+        />
       </div>
       <div className={styles.login_form}>
         <h1>Login</h1>

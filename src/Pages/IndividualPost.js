@@ -27,7 +27,7 @@ export default function IndividualPost() {
     };
 
     fetchPostData();
-  }, []);
+  }, [getPostData, postId]);
   const { likedPosts, handleLike, handleDislike } = useContext(LikeContext);
 
   const getUserById = (username) => {
@@ -45,7 +45,7 @@ export default function IndividualPost() {
       handleLike(postId);
     }
   };
-  console.log(postId);
+
   return (
     <div>
       <Navbar />
@@ -64,7 +64,7 @@ export default function IndividualPost() {
                 const likeCount = post.likes.likeCount;
                 return (
                   <>
-                    <div className={styles.post} key={post.id}>
+                    <div className={styles.post} key={post._id}>
                       <div className={styles.post_header}>
                         <img
                           src="https://pbs.twimg.com/profile_images/1209746138/creeper_400x400.png"

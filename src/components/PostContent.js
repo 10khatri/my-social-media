@@ -34,9 +34,9 @@ export default function PostContent() {
     setEditModalOpen(true);
   };
 
-  const closeEditModal = () => {
-    setEditModalOpen(false);
-  };
+  // const closeEditModal = () => {
+  //   setEditModalOpen(false);
+  // };
 
   const getUserById = (username) => {
     return users.find((user) => user.username === username);

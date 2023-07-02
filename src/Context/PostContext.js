@@ -3,10 +3,10 @@ import { AuthContext } from "./AuthContext";
 export const PostContext = React.createContext();
 
 export default function PostContextProvider({ children }) {
-  const userId = localStorage.getItem("userId");
+  // const userId = localStorage.getItem("userId");
   const [posts, setPosts] = React.useState([]);
   const [users, setUsers] = React.useState([]);
-  const { setUserInfo, userInfo } = useContext(AuthContext);
+  const { setUserInfo } = useContext(AuthContext);
 
   React.useEffect(() => {
     fetchPosts();

@@ -14,14 +14,14 @@ import IndividualPost from "./Pages/IndividualPost";
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  console.log("hello");
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/");
     } else {
       navigate("/login");
     }
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <>

@@ -1,6 +1,7 @@
 import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Profile from "./Pages/Profile";
+import Error from "./Pages/Error";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import { AuthContext } from "./Context/AuthContext";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/explore" element={<ExploreContent />} />
         <Route path="/liked" element={<Liked />} />
         <Route path="/profile/:profileId" element={<Profile />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   );

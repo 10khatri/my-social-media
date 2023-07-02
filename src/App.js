@@ -27,7 +27,6 @@ function App() {
 
   return (
     <>
-      <h1>hello</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />

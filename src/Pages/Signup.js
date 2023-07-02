@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import styles from "../Styles/Signup.module.css";
 export default function Signup() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -17,8 +18,8 @@ export default function Signup() {
         username,
         email,
         password,
-        bio: `Hey there ${name} here`, // Add the bio property
-        website: "https://github.com/p", // Add the website property
+        bio: `Hey there ${name} here`,
+        website: "https://github.com/p",
       };
       console.log(userData);
       try {
@@ -62,47 +63,57 @@ export default function Signup() {
   }
 
   return (
-    <div>
-      <h1>Signup</h1>
-      <div>
-        <label>Name</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(event) => {
-            handleUsername1(event);
-          }}
-        />
-        <label>Username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => {
-            handleUsername2(event);
-          }}
-        />
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(event) => {
-            handleEmail(event);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => {
-            handlePassword(event);
-          }}
-        />
-        <button onClick={handleSignup}>Signup</button>
+    <div className={styles.signup_container}>
+      <div className={styles.quote_container}>
+        <img src="https://www.freepnglogos.com/uploads/logo-twitch-ios-version-png-0.png" />
+      </div>
+      <div className={styles.signup_form}>
+        <h1>Signup</h1> <br />
+        <div>
+          <label>Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(event) => {
+              handleUsername1(event);
+            }}
+          />
+          <br />
+          <label>Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => {
+              handleUsername2(event);
+            }}
+          />
+          <br />
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(event) => {
+              handleEmail(event);
+            }}
+          />
+          <br />
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => {
+              handlePassword(event);
+            }}
+          />
+          <br />
+          <div className={styles.signup_buttons}>
+            <button onClick={handleSignup}>Signup</button>
 
-        <button>
-          {" "}
-          <Link to="/login">Login </Link>
-        </button>
+            <button>
+              <Link to="/login">Login </Link>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

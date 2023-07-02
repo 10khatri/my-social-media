@@ -62,16 +62,14 @@ export default function Login() {
   return (
     <div className={styles.login_container}>
       <div className={styles.quote_container}>
-        <figure>
-          “Man suffers only because he takes seriously what the gods made for
-          fun.” <figcaption>― Alan Wilson Watts</figcaption>
-        </figure>
+        <img src="https://www.freepnglogos.com/uploads/logo-twitch-ios-version-png-0.png" />
       </div>
       <div className={styles.login_form}>
         <h1>Login</h1>
         <div>
-          <label htmlFor="username">Username</label>
           <br />
+          <label htmlFor="username">Username</label>
+
           <input
             type="text"
             id="username"
@@ -82,7 +80,6 @@ export default function Login() {
           />
           <br />
           <label htmlFor="password">Password</label>
-          <br />
 
           <input
             type="password"

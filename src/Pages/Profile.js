@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Modal from "react-modal";
+import EditModal from "../components/EditProfileModal";
 import { PostContext } from "../Context/PostContext";
 import { AuthContext } from "../Context/AuthContext";
 import Suggestion from "../components/Suggestion";
@@ -15,25 +17,78 @@ import {
   faShare,
 } from "@fortawesome/free-solid-svg-icons";
 
+Modal.setAppElement("#root");
+
 export default function Profile() {
-  const { getUserData, posts } = useContext(PostContext);
-  const { userInfo } = useContext(AuthContext);
+  const { getUserData, posts, handleFollow, handleUnfollow, editUserData } =
+    useContext(PostContext);
+  const { userInfo, logout, setUserInfo } = useContext(AuthContext);
   const { profileId } = useParams();
   const [userData, setUserData] = useState({});
   const userPosts = posts.filter((post) => post.username === userData.username);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editedUserData, setEditedUserData] = useState({
+    bio: userData.bio,
+    website: userData.website,
+  });
 
   useEffect(() => {
     const fetchUserData = async () => {
       const user = await getUserData(profileId);
       setUserData(user);
+      setEditedUserData(user);
     };
 
     fetchUserData();
-  }, [profileId]);
+  }, [getUserData, profileId]);
 
   if (!userData) {
     return <div style={{ color: "white" }}>Loading...</div>;
   }
+
+  const handleFollowClick = () => {
+    handleFollow(userData._id);
+  };
+
+  const handleUnfollowClick = () => {
+    handleUnfollow(userData._id);
+  };
+
+  const handleLogoutClick = () => {
+    logout();
+  };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleInputChange = (e) => {
+    setEditedUserData({
+      ...editedUserData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    editUserData(editedUserData)
+      .then((updatedUser) => {
+        setUserData(updatedUser);
+        setIsModalOpen(false);
+      })
+      .catch((error) => {
+        console.log("Error editing user data:", error);
+      });
+  };
+
+  const handleEdit = () => {
+    handleOpenModal();
+  };
 
   return (
     <div>
@@ -41,11 +96,9 @@ export default function Profile() {
       <div className="app">
         <div className="main-layout">
           <div className="column ">
-            {" "}
             <Navigation />
           </div>
           <div className="column">
-            {" "}
             <div className={styles.profile}>
               <div className={styles.profile_header}>
                 <img
@@ -62,7 +115,21 @@ export default function Profile() {
                   <h1>@{userData.username}</h1>
                 </div>
 
-                <button>Follow</button>
+                {userInfo._id === userData._id ? (
+                  <span>
+                    <button onClick={handleLogoutClick}>Logout</button>
+                    <button onClick={handleEdit}>Edit</button>
+                  </span>
+                ) : userData.followers &&
+                  userData.followers.some(
+                    (follower) =>
+                      follower._id === userInfo._id ||
+                      follower._id === userInfo._id
+                  ) ? (
+                  <button onClick={handleUnfollowClick}>Following</button>
+                ) : (
+                  <button onClick={handleFollowClick}>Follow</button>
+                )}
               </div>
               <div>
                 <p>{userData.bio}</p>
@@ -70,7 +137,10 @@ export default function Profile() {
               </div>
               <div className={styles.profile_footer}>
                 <h3>Post {userPosts.length}</h3>
-                <h3>Following {}</h3>
+                <h3>
+                  Following{" "}
+                  {userData.following ? userData.following.length : null}
+                </h3>
                 <h3>
                   Followers{" "}
                   {userData.followers ? userData.followers.length : null}
@@ -92,11 +162,12 @@ export default function Profile() {
                       <h1>{post.fullName}</h1>
                       <h1>@{post.username}</h1>
                     </div>
-
                     <p>{post.createdAt}</p>
                   </div>
-
-                  <p>{post.content}</p>
+                  <Link to={`/post/${post._id}`}>
+                    {" "}
+                    <p>{post.content}</p>
+                  </Link>
                   <div className={styles.post_footer}>
                     <FontAwesomeIcon
                       icon={faHeart}
@@ -136,11 +207,17 @@ export default function Profile() {
             })}
           </div>
           <div className="column">
-            {" "}
             <Suggestion />
           </div>
         </div>
       </div>
+      <EditModal
+        isModalOpen={isModalOpen}
+        handleCloseModal={handleCloseModal}
+        handleFormSubmit={handleFormSubmit}
+        editedUserData={editedUserData}
+        handleInputChange={handleInputChange}
+      />
     </div>
   );
 }

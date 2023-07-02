@@ -36,6 +36,10 @@
   display: flex;
   flex-direction: column;
 }
+.post_header span {
+  cursor: pointer;
+  margin-left: 130px;
+}
 .post p {
   font-size: 0.8rem;
 }
@@ -72,13 +76,12 @@ a {
   border-radius: 50%;
 }
 .profile_header button {
-  width: 100px;
+  width: 120px;
   height: 42px;
   margin-left: 100px;
   margin-bottom: 4px;
 }
-.profile_header_username {
-}
+
 .profile_footer {
   display: flex;
   justify-content: space-around;
@@ -88,4 +91,14 @@ a {
 }
 .profile div:nth-last-child(1) {
   margin: 0;
+}
+.likecount {
+  margin-left: -70px;
+}
+.comments {
+  text-align: center;
+  padding-top: 20px;
+}
+.comment_data {
+  margin-top: 10px;
 }

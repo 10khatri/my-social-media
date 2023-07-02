@@ -5,10 +5,13 @@
   color: white;
   border: none;
   border-bottom: 00000000000.1px solid #d6b8f7;
-  padding: 20px 10px;
+  padding: 20px 50px;
   position: sticky;
   top: 0;
   z-index: 2;
+}
+.searchInput {
+  color: black;
 }
 .navbar input {
   width: 200px;

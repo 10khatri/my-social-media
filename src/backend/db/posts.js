@@ -57,7 +57,7 @@ export const posts = [
     content:
       "Went to this hangout place, Bob's in Marathalli yesterday. The ambience is real good and the mocktails are really fresh.",
     likes: {
-      likeCount: 0,
+      likeCount: 2,
       likedBy: [],
       dislikedBy: [],
     },
@@ -158,7 +158,7 @@ export const posts = [
     content:
       "Went out for dinner at Chili's Hyderabad. The taste reminds me of back home in Autralia.",
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },
@@ -201,7 +201,7 @@ export const posts = [
     content:
       "Went out for dinner at Chili's Hyderabad. The taste reminds me of back home in Autralia.",
     likes: {
-      likeCount: 0,
+      likeCount: 7,
       likedBy: [],
       dislikedBy: [],
     },
@@ -244,7 +244,7 @@ export const posts = [
     content:
       "Nairobi is such a great city with so many people going about their business. One thing that you need to know while there are the places where to find great food/meals. Best recommendation is @al_yusra Restaurant located along Banda Street just next to Nation Centre. #Kenya",
     likes: {
-      likeCount: 0,
+      likeCount: 3,
       likedBy: [],
       dislikedBy: [],
     },

@@ -24,3 +24,13 @@
   height: 48px;
   border-radius: 50%;
 }
+.suggestion_container_sort_button {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0px;
+  gap: 5px;
+}
+.suggestion_container_sort_button button {
+  width: 160px;
+  height: 40px;
+}

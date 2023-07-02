@@ -33,3 +33,15 @@ body,
   border-left: 000000.1px solid #d6b8f7;
   border-right: 000000.1px solid #d6b8f7;
 }
+.modal {
+  width: 500px;
+
+  height: 400px;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+.modal-content label {
+  padding-top: 15px;
+}

@@ -25,7 +25,7 @@ export default function Navbar() {
 
     setSearchResults(results);
   };
-
+  console.log("user is", user);
   return (
     <div className={Styles.navbar}>
       <div>
@@ -52,7 +52,7 @@ export default function Navbar() {
       </div>
       <div>
         <Link to={`/profile/${user?._id}`}>
-          <h1>{user.username}</h1>
+          <h1>{user?.username}</h1>
         </Link>
       </div>
     </div>

@@ -75,6 +75,7 @@ export default function Signup() {
         <div>
           <label>Name</label>
           <input
+            required={true}
             type="text"
             value={name}
             onChange={(event) => {
@@ -84,6 +85,7 @@ export default function Signup() {
           <br />
           <label>Username</label>
           <input
+            required={true}
             type="text"
             value={username}
             onChange={(event) => {
@@ -93,6 +95,7 @@ export default function Signup() {
           <br />
           <label>Email</label>
           <input
+            required={true}
             type="email"
             value={email}
             onChange={(event) => {
@@ -102,6 +105,7 @@ export default function Signup() {
           <br />
           <label>Password</label>
           <input
+            required={true}
             type="password"
             value={password}
             onChange={(event) => {

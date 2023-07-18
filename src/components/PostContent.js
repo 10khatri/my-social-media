@@ -25,7 +25,7 @@ export default function PostContent() {
   const [newPost, setNewPost] = React.useState("");
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editPostId, setEditPostId] = useState("");
-  const [setEditPostContent] = useState("");
+  const [editPostContent, setEditPostContent] = useState("");
 
   const openEditModal = (postId) => {
     const post = posts.find((p) => p._id === postId);

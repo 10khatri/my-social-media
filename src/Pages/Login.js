@@ -76,6 +76,7 @@ export default function Login() {
 
           <input
             type="text"
+            required={true}
             id="username"
             value={username}
             onChange={(event) => {
@@ -87,6 +88,7 @@ export default function Login() {
 
           <input
             type="password"
+            required={true}
             id="password"
             value={password}
             onChange={(event) => {
